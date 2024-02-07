@@ -1,3 +1,5 @@
 # CasinoSim
 ## Project Members
-William Chen
+- William Chen
+- Max Gerew
+- Thomas Clifton
