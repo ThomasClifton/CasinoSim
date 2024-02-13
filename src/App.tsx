@@ -5,7 +5,7 @@ import Slots from './containers/SlotsGameContainer';
 import Blackjack from './containers/BlackjackGameContainer';
 import Header from './containers/HeaderContainer';
 import Home from './containers/HomeContainer';
-import './App.css';
+//import './App.css';
 
 function App() {
   const [playerBalance, setPlayerBalance] = useState(1000)

@@ -1,4 +1,4 @@
-import './Header.css';
+import '../styles/_home.css';
 
 const Header = ({ title = "Casino Sim", playerBalance = 1000}) => {
     return (
