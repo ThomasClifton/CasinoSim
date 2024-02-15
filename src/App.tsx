@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './styles/main.css'
 import Slots from './containers/SlotsGameContainer';
 import Blackjack from './containers/BlackjackGameContainer';
-import Header from './containers/HeaderContainer';
+import Header from './components/header';
 import Home from './containers/HomeContainer';
 //import './App.css';
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <Router>
             <div>
-                <Header title="Casino Sim" playerBalance={playerBalance} />
+                <Header balance={playerBalance} />
 
                 <Routes>
                     <Route path="/" element={<Home />} />
