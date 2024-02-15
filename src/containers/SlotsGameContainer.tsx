@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -23,10 +22,6 @@ const Slots = () => {
     }
     return (
         <div>
-            <Link to="/">
-                <button>Back to home</button>
-            </Link>
-
             <h2>Slots Game Page</h2>
             {/* Add Slots game content */}
             <button onClick={handleSpinClick}>Spin</button>

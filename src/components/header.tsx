@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/header.css'
+import '../styles/_header.css'
 
 class Header extends React.Component<{ balance: any }> {
     render() {
