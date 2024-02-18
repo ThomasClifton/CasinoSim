@@ -1,0 +1,22 @@
+.app-header {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: calc(100% - 40px);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+button {
+    font-size: 32px;
+    padding: 5px 10px;
+}
+
+.header-balance {
+    font-size: 32px;
+    font-weight: bold;
+}
