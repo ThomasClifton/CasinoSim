@@ -5,6 +5,7 @@ import Slots from './containers/SlotsGameContainer';
 import Blackjack from './containers/BlackjackGameContainer';
 import Header from './components/header';
 import Home from './containers/HomeContainer';
+import Casino from './containers/CasinoContainer';
 //import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/casino" element={<Casino />} />
                     <Route path="/slots" element={<Slots />} />
                     <Route path="/blackjack" element={<Blackjack />} />
                 </Routes>
