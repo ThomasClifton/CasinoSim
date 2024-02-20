@@ -1,0 +1,21 @@
+.slotsContainer {
+    width: 350px;
+    height: 300px;
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.column {
+    border: 1px solid black;
+    width: 100px;
+    height: 300px;
+}
+button {
+    margin: 20px;
+}
+img {
+    margin: 5px;
+}
