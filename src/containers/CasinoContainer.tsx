@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../styles/_home.css';
+import '../styles/main.css';
 //import '../styles/_casino.css';
 
 const Casino = () => {

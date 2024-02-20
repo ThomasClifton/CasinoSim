@@ -3,6 +3,10 @@
     padding: 20px;
 }
 
+#root {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
 .home-container h2 {
     font-size: 48px;
 }
@@ -14,7 +18,7 @@
 
 .home-buttons {
     display: flex;
-    justify-content: center;
+    justify-content:end;
 }
 
 .home-buttons button {
@@ -29,4 +33,16 @@
 
 .home-buttons button:hover {
     background-color: #0056b3;
+}
+
+body {
+    background-image: url('../assets/david-vives-vegas.jpg');
+    position: relative;
+    background-size:100% 100vh;
+    display: grid;
+    max-height: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
