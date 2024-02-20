@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "/src/styles/_slots.css";
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -13,24 +14,31 @@ const slotsImages: {[key:string]: string} = {
 
 const Slots = () => {
 
-    const [selectedItem, setSelectedItem] = useState<string | null>(null);
-
+    const [selectedItems, setSelectedItems] = useState<Array<string | null>>([null, null, null]);
+  
+    
     const handleSpinClick = () => {
-        const randomIndex = Math.floor(Math.random() * slotsItems.length);
-        const randomItem = slotsItems[randomIndex];
-        setSelectedItem(randomItem);
-    }
+        const randomItems = slotsItems.map(() => {
+            const randomIndex = Math.floor(Math.random() * slotsItems.length);
+            return slotsItems[randomIndex];
+        }).slice(0, 3);
+        setSelectedItems(randomItems);
+    };
+    
     return (
-        <div>
-            <h2>Slots Game Page</h2>
-            {/* Add Slots game content */}
-            <button onClick={handleSpinClick}>Spin</button>
-            <div>
-                {selectedItem && <img src={slotsImages[selectedItem]}/>}
+        <>
+            <div className="slotsContainer">
+                {selectedItems.map((selectedItem, index) => (
+                    <div className="column" key={index}>
+                        {selectedItem && <img src={slotsImages[selectedItem]} alt={selectedItem} />}
+                    </div>
+                ))}
             </div>
-            
-        </div>
+            <button onClick={handleSpinClick}>Spin</button>
+        </>
+        
     );
+    
 };
 
-export default Slots;   
+export default Slots;
