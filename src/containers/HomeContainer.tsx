@@ -10,11 +10,8 @@ const Home = () => {
             </p>
 
             <div className="home-buttons">
-                <Link to="/slots">
-                    <button>Play Slots</button>
-                </Link>
-                <Link to="/blackjack">
-                    <button>Play Blackjack</button>
+                <Link to="/casino">
+                    <button>Play</button>
                 </Link>
             </div>
         </div>
