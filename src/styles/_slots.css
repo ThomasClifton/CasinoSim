@@ -20,6 +20,10 @@ img {
     margin: 5px;
 }
 
+#slotsHandle {
+  height: 150px;
+}
+
 /* stuff below is for mantine ui slider*/
 .wrapper {
     position: relative;

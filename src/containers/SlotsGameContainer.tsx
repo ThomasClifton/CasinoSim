@@ -25,6 +25,11 @@ const Slots = () => {
             return slotsItems[randomIndex];
         }).slice(0, 3);
         setSelectedItems(randomItems);
+        const handle = document.getElementById("slotsHandle");
+        handle.style.transform = "rotate(180deg)";
+        setTimeout(() => {
+            handle.style.transform = "rotate(360deg)";
+        }, 2000);
     };
     
     return (
@@ -36,8 +41,10 @@ const Slots = () => {
                     </div>
                 ))}
             </div>
-            <button onClick={handleSpinClick}>Spin</button>
-            
+            <button id="slotsHandle" onClick={handleSpinClick}>
+                <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
+            </button>
+                        
             {
             // https://mantine.dev/core/slider/
             }
