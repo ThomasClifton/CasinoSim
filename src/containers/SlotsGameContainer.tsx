@@ -51,8 +51,8 @@ const Slots = () => {
             <Slider
             color="blue"
             marks={[
-                { value: 0, label: '0%' },
-                { value: 1000, label: '100%' },
+                { value: 0, label: '0' },
+                { value: 100, label: '100' },
             ]}
             />
         </>
