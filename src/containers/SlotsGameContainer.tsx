@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "/src/styles/_slots.css";
+import { useBalanceStore } from "../store/store";
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -42,6 +43,8 @@ const Slots = () => {
             <button id="slotsHandle" onClick={handleSpinClick}>
                 <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
             </button>
+            <button id="testWin" onClick={useBalanceStore((state) => state.addMoney)}>Test a Win</button>
+            <button id="testLoss" onClick={useBalanceStore((state) => state.loseMoney)}>Test a Loss</button>
         </>
         
     );
