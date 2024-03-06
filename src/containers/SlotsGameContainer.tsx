@@ -16,6 +16,8 @@ const slotsImages: {[key:string]: string} = {
 const Slots = () => {
 
     const [selectedItems, setSelectedItems] = useState<Array<string | null>>([null, null, null]);
+
+    const bet = 100;
   
     
     const handleSpinClick = () => {
@@ -24,29 +26,31 @@ const Slots = () => {
             return slotsItems[randomIndex];
         }).slice(0, 3);
         setSelectedItems(randomItems);
+        
         const handle = document.getElementById("slotsHandle");
         handle.style.transform = "rotate(180deg)";
         setTimeout(() => {
             handle.style.transform = "rotate(360deg)";
-        }, 2000);
+        }, 1000);
     };
     
     return (
         <>
-            <div className="slotsContainer">
-                {selectedItems.map((selectedItem, index) => (
-                    <div className="column" key={index}>
-                        {selectedItem && <img src={slotsImages[selectedItem]} alt={selectedItem} />}
-                    </div>
-                ))}
+            <div id="slotMachine">
+                <div className="slotsContainer">
+                    {selectedItems.map((selectedItem, index) => (
+                        <div className="column" key={index}>
+                            {selectedItem && <img src={slotsImages[selectedItem]} alt={selectedItem} />}
+                        </div>
+                    ))}
+                </div>
+                <button id="slotsHandle" onClick={handleSpinClick}>
+                    <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
+                </button>
             </div>
-            <button id="slotsHandle" onClick={handleSpinClick}>
-                <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
-            </button>
-            <button id="testWin" onClick={useBalanceStore((state) => state.addMoney)}>Test a Win</button>
-            <button id="testLoss" onClick={useBalanceStore((state) => state.loseMoney)}>Test a Loss</button>
+            <button id="testWin" onClick={() => useBalanceStore((state) => state.addMoney(bet))}>Test a Win</button>
+            <button id="testLoss" onClick={() => useBalanceStore((state) => state.loseMoney(bet))}>Test a Loss</button>
         </>
-        
     );
     
 };

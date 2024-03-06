@@ -2,16 +2,17 @@ import { create } from 'zustand';
 
 type BalanceStore = {
     balance: number;
-    addMoney: () => void;
-    loseMoney: () => void;
+    addMoney: (bet: number) => void;
+    loseMoney: (bet: number) => void;
 };
 
 export const useBalanceStore = create<BalanceStore>((set) => ({
     balance: 1000,
-    addMoney: () => {
-        set((state) => ({balance: state.balance + 100}));
+    addMoney: (bet) => {
+        set((state) => ({balance: state.balance + bet}));
+        console.log(bet);
     },
-    loseMoney: () => {
-        set((state) => ({balance: state.balance - 100}))
+    loseMoney: (bet) => {
+        set((state) => ({balance: state.balance - bet}))
     }
 }));

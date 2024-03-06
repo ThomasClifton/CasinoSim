@@ -8,6 +8,11 @@
     flex-direction: row;
 }
 
+#slotMachine{
+    display: flex;
+    flex-direction: row;
+}
+
 .column {
     border: 1px solid black;
     width: 100px;
