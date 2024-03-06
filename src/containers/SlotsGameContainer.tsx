@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "/src/styles/_slots.css";
+import Header from "../components/header.tsx";
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -32,6 +33,7 @@ const Slots = () => {
     
     return (
         <>
+            <Header balance={1000}/>
             <div className="slotsContainer">
                 {selectedItems.map((selectedItem, index) => (
                     <div className="column" key={index}>
