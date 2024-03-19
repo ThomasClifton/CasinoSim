@@ -18,7 +18,9 @@ const Slots = () => {
     const [selectedItems, setSelectedItems] = useState<Array<string | null>>([null, null, null]);
 
     const bet = 100;
-  
+
+    const addMoney = useBalanceStore((state) => state.addMoney);
+    const loseMoney = useBalanceStore((state) => state.loseMoney);
     
     const handleSpinClick = () => {
         const randomItems = slotsItems.map(() => {
@@ -48,8 +50,8 @@ const Slots = () => {
                     <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
                 </button>
             </div>
-            <button id="testWin" onClick={() => useBalanceStore((state) => state.addMoney(bet))}>Test a Win</button>
-            <button id="testLoss" onClick={() => useBalanceStore((state) => state.loseMoney(bet))}>Test a Loss</button>
+            <button id="testWin" onClick={() => addMoney(bet)}>Test a Win</button>
+            <button id="testLoss" onClick={() => loseMoney(bet)}>Test a Loss</button>
         </>
     );
     
