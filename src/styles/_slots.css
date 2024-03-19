@@ -44,7 +44,7 @@ img {
   
   .slider {
     position: absolute;
-    width: 100%;
+    width: 350px;
     bottom: rem(-1px);
   }
   

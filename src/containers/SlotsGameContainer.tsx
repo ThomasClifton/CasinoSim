@@ -34,7 +34,7 @@ const Slots = () => {
     };
     
     return (
-        <>
+        <div className="slotsPage">
             <Header balance={1000}/>
             <div className="slotsContainer">
                 {selectedItems.map((selectedItem, index) => (
@@ -57,7 +57,7 @@ const Slots = () => {
                 { value: 100, label: '100' },
             ]}
             />
-        </>
+        </div>
         
         
     );
