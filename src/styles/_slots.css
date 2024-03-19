@@ -1,11 +1,12 @@
 .slotsContainer {
-    width: 100%;
+    width: 350px;
     height: 30%;
     border: 1px solid black;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    margin: auto;
 }
 
 .column {
