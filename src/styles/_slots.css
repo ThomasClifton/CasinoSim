@@ -1,6 +1,6 @@
 .slotsContainer {
-    width: 350px;
-    height: 300px;
+    width: 100%;
+    height: 30%;
     border: 1px solid black;
     padding: 20px;
     display: flex;
@@ -18,10 +18,6 @@ button {
 }
 img {
     margin: 5px;
-}
-
-#slotsHandle {
-  height: 150px;
 }
 
 /* stuff below is for mantine ui slider*/

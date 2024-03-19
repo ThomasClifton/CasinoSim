@@ -50,10 +50,10 @@ const Slots = () => {
             {
             // https://mantine.dev/core/slider/
             }
-            <Slider
+            <Slider min={1}
             color="blue"
             marks={[
-                { value: 0, label: '0' },
+                { value: 0, label: '1' },
                 { value: 100, label: '100' },
             ]}
             />
