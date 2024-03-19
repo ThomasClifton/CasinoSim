@@ -8,7 +8,8 @@ const Casino = () => {
     const [playerBalance, setPlayerBalance] = useState(1000)
 
     return (
-        <><Header balance={playerBalance}/>
+        <>
+        <div><Header balance={playerBalance}/></div>
             <div className="casino-container">
                 <div className="casino-buttons">
                     <Link to="/slots">
@@ -19,6 +20,7 @@ const Casino = () => {
                     </Link>
                 </div>
             </div>
+        
         </>
     );
 };

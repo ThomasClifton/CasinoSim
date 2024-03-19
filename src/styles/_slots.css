@@ -1,11 +1,12 @@
 .slotsContainer {
     width: 350px;
-    height: 300px;
+    height: 30%;
     border: 1px solid black;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    margin: auto;
 }
 
 .column {
@@ -18,10 +19,6 @@ button {
 }
 img {
     margin: 5px;
-}
-
-#slotsHandle {
-  height: 150px;
 }
 
 /* stuff below is for mantine ui slider*/
@@ -47,7 +44,7 @@ img {
   
   .slider {
     position: absolute;
-    width: 100%;
+    width: 350px;
     bottom: rem(-1px);
   }
   
