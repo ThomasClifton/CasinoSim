@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "/src/styles/_slots.css";
 import Header from "../components/header.tsx";
+import { NumberInput, Slider } from '@mantine/core';
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -16,6 +17,7 @@ const slotsImages: {[key:string]: string} = {
 const Slots = () => {
 
     const [selectedItems, setSelectedItems] = useState<Array<string | null>>([null, null, null]);
+    const [value, setValue] = useState<number | string>(1000);
   
     
     const handleSpinClick = () => {
@@ -44,7 +46,19 @@ const Slots = () => {
             <button id="slotsHandle" onClick={handleSpinClick}>
                 <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
             </button>
+                        
+            {
+            // https://mantine.dev/core/slider/
+            }
+            <Slider
+            color="blue"
+            marks={[
+                { value: 0, label: '0' },
+                { value: 100, label: '100' },
+            ]}
+            />
         </>
+        
         
     );
     

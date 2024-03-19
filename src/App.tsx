@@ -4,6 +4,7 @@ import Slots from './containers/SlotsGameContainer';
 import Blackjack from './containers/BlackjackGameContainer';
 import Home from './containers/HomeContainer';
 import Casino from './containers/CasinoContainer';
+import '@mantine/core/styles.css'
 //import './App.css';
 
 function App() {
