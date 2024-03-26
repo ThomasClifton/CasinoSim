@@ -1,18 +1,21 @@
 .app-header {
-    background-color: #333;
+    background-color: #2b373b;
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
-    width: 100%;
-    top: 0;
-    left: 0;
 }
 
-button {
+.header-button {
     font-size: 32px;
-    padding: 5px 10px;
+    font-weight: bold;
+    color: white;
+    padding: 0 10px;
+    background-color: #3c4c53;
+}
+
+.header-button:hover {
+    background-color: #334147;
 }
 
 .header-balance {

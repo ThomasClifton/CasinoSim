@@ -34,12 +34,12 @@ class Header extends React.Component<{ balance: any }> {
             <div className="app-header">
                 <div>
                     <Link to="/casino">
-                        <button>Back to games</button>
+                        <button className="header-button">Back to games</button>
                     </Link>
                 </div>
                 <div>
                     <Link to="/">
-                        <button>Back to title</button>
+                        <button className="header-button">Back to title</button>
                     </Link>
                 </div>
                 <div className="header-balance">
