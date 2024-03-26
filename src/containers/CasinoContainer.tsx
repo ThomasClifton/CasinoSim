@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
-import '../styles/_home.css';
 import Header from "../components/header.tsx";
 import { useState } from 'react'
-//import '../styles/_casino.css';
+import '../styles/_casino.css';
 
 const Casino = () => {
     const [playerBalance, setPlayerBalance] = useState(1000)

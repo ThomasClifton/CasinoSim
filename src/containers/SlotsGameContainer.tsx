@@ -36,14 +36,14 @@ const Slots = () => {
     return (
         <div className="slotsPage">
             <Header balance={1000}/>
-            <div className="slotsContainer">
+            <div className="slots-container">
                 {selectedItems.map((selectedItem, index) => (
                     <div className="column" key={index}>
                         {selectedItem && <img src={slotsImages[selectedItem]} alt={selectedItem} />}
                     </div>
                 ))}
             </div>
-            <button id="slotsHandle" onClick={handleSpinClick}>
+            <button id="slots-handle" onClick={handleSpinClick}>
                 <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
             </button>
                         

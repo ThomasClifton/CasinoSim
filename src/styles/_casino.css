@@ -1,0 +1,19 @@
+.casino-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.casino-buttons button {
+    padding: 10px 20px;
+    font-size: 32px;
+    background-color: #007bff;
+    color: #fff;
+    margin: 0 10px;
+}
+
+.casino-buttons button:hover {
+    background-color: #0056b3;
+}
