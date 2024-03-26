@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import Header from "../components/header.tsx";
 import { useState } from 'react'
+import { useBalanceStore } from '../store/store';
 import '../styles/_casino.css';
 
 const Casino = () => {
-    const [playerBalance, setPlayerBalance] = useState(1000)
+    const balance = useBalanceStore((state) => state.balance);
 
     return (
         <>
-        <div><Header balance={playerBalance}/></div>
+        <div><Header balance={balance}/></div>
             <div className="casino-container">
                 <div className="casino-buttons">
                     <Link to="/slots">
