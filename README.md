@@ -12,6 +12,13 @@ This project is a casino simulator with games you can find at casinos like black
     npm i
     npm run dev
 
+## How to Play
+
+### Slots
+10x Your money with Slots! Click the lever to spin the three reels. If all three match you win!
+
+### Blackjack
+In Blackjack, the object of the game is to get closer to 21 than the dealer without going over 21. If a hand goes over 21, it is called a “bust” or “break” and the wager is lost. Jacks, queens, and kings all count as 10. An ace can be played as a one or an 11. All other cards are played at face value.
 
 ## License
 This project is licensed under the MIT License. See LICENSE for details.
