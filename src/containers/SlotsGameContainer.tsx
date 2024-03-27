@@ -34,8 +34,9 @@ const Slots = () => {
     };
     
     return (
+        <div>
+        <Header balance={1000}/>
         <div className="slotsPage">
-            <Header balance={1000}/>
             <div className="slots-container">
                 {selectedItems.map((selectedItem, index) => (
                     <div className="column" key={index}>
@@ -46,10 +47,13 @@ const Slots = () => {
             <button id="slots-handle" onClick={handleSpinClick}>
                 <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
             </button>
+            </div>
+            
                         
             {
             // https://mantine.dev/core/slider/
             }
+            <div>
             <Slider min={1}
             color="blue"
             marks={[
@@ -57,6 +61,7 @@ const Slots = () => {
                 { value: 100, label: '100' },
             ]}
             />
+            </div>
         </div>
         
         

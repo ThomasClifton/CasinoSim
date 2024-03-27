@@ -20,6 +20,9 @@ This project is a casino simulator with games you can find at casinos like black
 ### Blackjack
 In Blackjack, the object of the game is to get closer to 21 than the dealer without going over 21. If a hand goes over 21, it is called a “bust” or “break” and the wager is lost. Jacks, queens, and kings all count as 10. An ace can be played as a one or an 11. All other cards are played at face value.
 
+### Bomb Game
+In the bomb game, there is a 5x5 grid. At the beginning of the game, you choose how many mines you want in play. 1-24 mines can be selected across 25 times. The mines are gems are placed at random. You click on the tiles to reveal either a bomb or a gem. Every gem revealed increases your multiplier, but a bomb will end your game. 
+
 ## License
 This project is licensed under the MIT License. See LICENSE for details.
 
