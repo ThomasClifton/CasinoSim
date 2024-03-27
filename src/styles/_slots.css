@@ -49,8 +49,13 @@ img {
   
   .slider {
     position: absolute;
-    width: 350px;
-    bottom: rem(-1px);
+    width: 100%
+  }
+  
+  .sliderContainer {
+    width: 35%;
+    margin: auto;
+    padding-top: 20px;
   }
   
   .thumb {

@@ -53,7 +53,7 @@ const Slots = () => {
             {
             // https://mantine.dev/core/slider/
             }
-            <div>
+            <div className="sliderContainer">
             <Slider min={1}
             color="blue"
             marks={[
