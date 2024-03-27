@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "/src/styles/_slots.css";
 import Header from "../components/header.tsx";
 import { NumberInput, Slider } from '@mantine/core';
+import { useBalanceStore } from '../store/store';
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -17,8 +18,12 @@ const slotsImages: {[key:string]: string} = {
 const Slots = () => {
 
     const [selectedItems, setSelectedItems] = useState<Array<string | null>>([null, null, null]);
-    const [value, setValue] = useState<number | string>(1000);
-  
+    const balance = useBalanceStore((state) => state.balance);
+    
+    const addMoney = useBalanceStore((state) => state.addMoney);
+    const loseMoney = useBalanceStore((state) => state.loseMoney);
+    
+    const bet = 100;
     
     const handleSpinClick = () => {
         const randomItems = slotsItems.map(() => {
@@ -30,12 +35,12 @@ const Slots = () => {
         handle.style.transform = "rotate(180deg)";
         setTimeout(() => {
             handle.style.transform = "rotate(360deg)";
-        }, 2000);
+        }, 1000);
     };
     
     return (
         <div>
-        <Header balance={1000}/>
+        <Header balance={balance}/>
         <div className="slotsPage">
             <div className="slots-container">
                 {selectedItems.map((selectedItem, index) => (
@@ -47,8 +52,10 @@ const Slots = () => {
             <button id="slots-handle" onClick={handleSpinClick}>
                 <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
             </button>
-            </div>
+        </div>
             
+            <button id="testWin" onClick={() => addMoney(bet)}>Test a Win</button>
+            <button id="testLoss" onClick={() => loseMoney(bet)}>Test a Loss</button>
                         
             {
             // https://mantine.dev/core/slider/
