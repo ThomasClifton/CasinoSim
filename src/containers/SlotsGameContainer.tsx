@@ -19,11 +19,11 @@ const Slots = () => {
 
     const [selectedItems, setSelectedItems] = useState<Array<string | null>>([null, null, null]);
     const balance = useBalanceStore((state) => state.balance);
+
+    const [value, setValue] = useState(40);
     
     const addMoney = useBalanceStore((state) => state.addMoney);
     const loseMoney = useBalanceStore((state) => state.loseMoney);
-    
-    const bet = 100;
     
     const handleSpinClick = () => {
         const randomItems = slotsItems.map(() => {
@@ -36,6 +36,13 @@ const Slots = () => {
         setTimeout(() => {
             handle.style.transform = "rotate(360deg)";
         }, 1000);
+        //let betAmount = document.getElementById("betSlider");
+        if(selectedItems[0] == selectedItems[1] && selectedItems[1] == selectedItems[2]){
+            addMoney(value);
+        }
+        else{
+            loseMoney(value);
+        }
     };
     
     return (
@@ -49,24 +56,24 @@ const Slots = () => {
                     </div>
                 ))}
             </div>
-            <button id="slots-handle" onClick={handleSpinClick}>
+            <button id="slotsHandle" onClick={handleSpinClick}>
                 <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
             </button>
         </div>
-            
-            <button id="testWin" onClick={() => addMoney(bet)}>Test a Win</button>
-            <button id="testLoss" onClick={() => loseMoney(bet)}>Test a Loss</button>
                         
             {
             // https://mantine.dev/core/slider/
             }
             <div className="sliderContainer">
-            <Slider min={1}
-            color="blue"
-            marks={[
-                { value: 0, label: '1' },
-                { value: 100, label: '100' },
-            ]}
+            <Slider min={10}
+                color="blue"
+                id="betSlider"
+                value={value}
+                onChange={setValue}
+                marks={[
+                    { value: 10, label: '10' },
+                    { value: 100, label: '100' },
+                ]}
             />
             </div>
         </div>
