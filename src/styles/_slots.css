@@ -1,12 +1,17 @@
 .slots-container {
     width: 350px;
     height: 30%;
-    border: 1px solid black;
+    border: 1px solid #000000;
     padding: 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    margin: auto;
+}
+
+.slotsPage {
+  display :flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .column {
@@ -15,7 +20,7 @@
     height: 300px;
 }
 button {
-    margin: 20px;
+    margin: 0px;
 }
 img {
     margin: 5px;
@@ -44,8 +49,13 @@ img {
   
   .slider {
     position: absolute;
-    width: 350px;
-    bottom: rem(-1px);
+    width: 100%
+  }
+  
+  .sliderContainer {
+    width: 35%;
+    margin: auto;
+    padding-top: 20px;
   }
   
   .thumb {
