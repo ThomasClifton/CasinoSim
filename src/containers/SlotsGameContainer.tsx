@@ -31,14 +31,15 @@ const Slots = () => {
             return slotsItems[randomIndex];
         }).slice(0, 3);
         setSelectedItems(randomItems);
-        const handle = document.getElementById("slotsHandle");
+        const handle = document.getElementById("slots-handle");
         handle.style.transform = "rotate(180deg)";
         setTimeout(() => {
             handle.style.transform = "rotate(360deg)";
         }, 1000);
-        //let betAmount = document.getElementById("betSlider");
         if(selectedItems[0] == selectedItems[1] && selectedItems[1] == selectedItems[2]){
-            addMoney(value);
+            // have multiplier change based on which symbol it is
+            let multiplier = 1;
+            addMoney(value * multiplier);
         }
         else{
             loseMoney(value);
@@ -56,7 +57,7 @@ const Slots = () => {
                     </div>
                 ))}
             </div>
-            <button id="slotsHandle" onClick={handleSpinClick}>
+            <button id="slots-handle" onClick={handleSpinClick}>
                 <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
             </button>
         </div>
