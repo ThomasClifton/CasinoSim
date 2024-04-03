@@ -36,3 +36,7 @@ This project is licensed under the MIT License. See LICENSE for details.
 - by [Kenney.nl](https://opengameart.org/content/boardgame-pack)
 ### Slot Machine Resource Pack
 - by [Cougarmint](https://opengameart.org/content/slot-machine-resource-pack)
+
+## Audio Credits
+### Casino Ambiance
+- Source: Pixabay
