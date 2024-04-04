@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import Header from "../components/header.tsx";
-import { useState } from 'react'
 import { useBalanceStore } from '../store/store';
 import '../styles/_casino.css';
 
@@ -17,6 +16,9 @@ const Casino = () => {
                     </Link>
                     <Link to="/blackjack">
                         <button>Play Blackjack</button>
+                    </Link>
+                    <Link to="/bomb">
+                        <button>Play Bomb</button>
                     </Link>
                 </div>
             </div>
