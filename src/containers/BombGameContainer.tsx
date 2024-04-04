@@ -1,17 +1,18 @@
 import Header from "../components/header.tsx";
-import {useBalanceStore} from "../store/store.ts";
+import { useBalanceStore } from '../store/store';
 
-const Blackjack = () => {
+
+const Bomb = () => {
     const balance = useBalanceStore((state) => state.balance);
 
     return (
         <><Header balance={balance}/>
             <div>
-                <h2>Blackjack Game Page</h2>
+                <h2>Bomb Game Page</h2>
                 {/* Add Blackjack game content */}
             </div>
         </>
     );
 };
 
-export default Blackjack;
+export default Bomb;

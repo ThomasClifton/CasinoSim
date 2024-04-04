@@ -5,6 +5,7 @@ import Blackjack from './containers/BlackjackGameContainer';
 import Home from './containers/HomeContainer';
 import Casino from './containers/CasinoContainer';
 import '@mantine/core/styles.css'
+import Bomb from "./containers/BombGameContainer.tsx";
 //import './App.css';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/casino" element={<Casino />} />
                     <Route path="/slots" element={<Slots />} />
                     <Route path="/blackjack" element={<Blackjack />} />
+                    <Route path="/bomb" element={<Bomb />} />
                 </Routes>
             </div>
         </Router>
