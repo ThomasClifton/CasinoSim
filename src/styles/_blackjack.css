@@ -1,0 +1,18 @@
+.hands {
+    display: flex;
+}
+
+.hand {
+    flex: 1;
+}
+
+button {
+    padding: 5px 10px;
+    width: auto;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
