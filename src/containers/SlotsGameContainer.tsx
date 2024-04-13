@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "/src/styles/_slots.css";
 import Header from "../components/header.tsx";
-import { NumberInput, Slider } from '@mantine/core';
+import { Slider } from '@mantine/core';
 import { useBalanceStore } from '../store/store';
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];

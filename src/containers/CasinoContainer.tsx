@@ -12,17 +12,22 @@ const Casino = () => {
             <div className="casino-container">
                 <div className="casino-buttons">
                     <Link to="/slots">
-                        <button>Play Slots</button>
+                        <button className='gameButton'>
+                            <img src="/src/assets/slots.jpg"/>
+                        </button>
                     </Link>
                     <Link to="/blackjack">
-                        <button>Play Blackjack</button>
+                        <button className='gameButton'>
+                            <img src="/src/assets/blackjack.jpg"/>
+                        </button>
                     </Link>
                     <Link to="/bomb">
-                        <button>Play Bomb</button>
+                        <button className='gameButton'>
+                            <img src="/src/assets/mine.jpg"/>
+                        </button>
                     </Link>
                 </div>
             </div>
-        
         </>
     );
 };
