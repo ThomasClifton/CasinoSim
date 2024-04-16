@@ -9,7 +9,7 @@ const Bomb = () => {
         <><Header balance={balance}/>
             <div>
                 <h2>Bomb Game Page</h2>
-                {/* Add Blackjack game content */}
+                
             </div>
         </>
     );

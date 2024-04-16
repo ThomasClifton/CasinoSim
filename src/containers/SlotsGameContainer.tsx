@@ -43,6 +43,31 @@ const Slots = () => {
         if(selectedItems[0] == selectedItems[1] && selectedItems[1] == selectedItems[2]){
             // have multiplier change based on which symbol it is
             let multiplier = 1;
+            switch (randomItems[0]) {
+                case 'melon':
+                    multiplier = 200;
+                    break;
+                case 'heart':
+                    multiplier = 100;
+                    break;
+                case 'cherry':
+                    multiplier = 150;
+                    break;
+                case 'clover':
+                    multiplier = 75;
+                    break;
+                case 'bell':
+                    multiplier = 50;
+                    break;
+                case 'bar':
+                    multiplier = 125;
+                    break;
+                case 'seven':
+                    multiplier = 500;
+                    break;
+                default:
+                    multiplier = 1;
+            }
             winSoundPlayer.play();
             addMoney(value * multiplier);
             winSoundPlayer.currentTime = 0;
