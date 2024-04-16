@@ -40,3 +40,5 @@ This project is licensed under the MIT License. See LICENSE for details.
 ## Audio Credits
 ### Casino Ambiance
 - Source: Pixabay
+### playful-casino-slot-machine-bonus
+- Sound Effect by [floraphonic](https://pixabay.com/users/floraphonic-38928062/utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=183918) from [Pixabay](https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=183918)
