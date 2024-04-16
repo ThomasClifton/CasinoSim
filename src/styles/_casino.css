@@ -17,3 +17,9 @@
 .casino-buttons button:hover {
     background-color: #0056b3;
 }
+
+img {
+    height: 150px;
+    width: auto;
+    border-radius: 8px;
+}
