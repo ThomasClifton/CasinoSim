@@ -10,7 +10,7 @@ const Bomb = () => {
     const [board, setBoard] = useState<boolean[][]>(Array(5).fill(Array(5).fill(false)));
 
     const handleCellClick = (row: number, column: number) => {
-        console.log("Clicked on (${row}, ${column})");
+        console.log(`Clicked on (${row}, ${column})`);
     }
     
     return (
