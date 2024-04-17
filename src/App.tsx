@@ -6,7 +6,7 @@ import Home from './containers/HomeContainer';
 import Casino from './containers/CasinoContainer';
 import '@mantine/core/styles.css'
 import Bomb from "./containers/BombGameContainer.tsx";
-//import './App.css';
+import Pachinko from "./containers/PachinkoContainer.tsx"
 
 function App() {
   return (
@@ -18,10 +18,11 @@ function App() {
                     <Route path="/slots" element={<Slots />} />
                     <Route path="/blackjack" element={<Blackjack />} />
                     <Route path="/bomb" element={<Bomb />} />
+                    <Route path="/pachinko" element={<Pachinko />} />
                 </Routes>
             </div>
         </Router>
   )
 }
 
-export default App
+export default App;    
