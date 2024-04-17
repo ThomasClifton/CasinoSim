@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import '../styles/_home.css';
 import sound from '../assets/Music/casino-ambiance-19130.mp3'
+import { useBalanceStore } from '../store/store';
 
 
 const Home = () => {
     var isAudioPlayed = false;
+
+    const reset = useBalanceStore((state) => state.reset);
 
     const playAudio = () => {
         var audioContext = new AudioContext();
@@ -22,6 +25,10 @@ const Home = () => {
         playAudio();
     }
 
+    const resetStore = () => {
+        reset();
+    }
+
     return (
         <div className="home-container">
             <h2>Welcome to Casino Sim!</h2>
@@ -31,7 +38,7 @@ const Home = () => {
 
             <div className="home-buttons">
                 <Link to="/casino">
-                    <button>Play</button>
+                    <button onClick={resetStore}>Play</button>
                 </Link>
             </div>
         </div>

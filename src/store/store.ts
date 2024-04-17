@@ -4,6 +4,7 @@ type BalanceStore = {
     balance: number;
     addMoney: (bet: number) => void;
     loseMoney: (bet: number) => void;
+    reset: () => void;
 };
 
 export const useBalanceStore = create<BalanceStore>((set) => ({
@@ -14,5 +15,8 @@ export const useBalanceStore = create<BalanceStore>((set) => ({
     },
     loseMoney: (bet) => {
         set((state) => ({balance: state.balance - bet}))
+    },
+    reset: () => {
+        set({balance:1000})
     }
 }));

@@ -27,7 +27,7 @@ const Slots = () => {
     
     const addMoney = useBalanceStore((state) => state.addMoney);
     const loseMoney = useBalanceStore((state) => state.loseMoney);
-    
+
     const handleSpinClick = () => {
         const randomItems = slotsItems.map(() => {
             const randomIndex = Math.floor(Math.random() * slotsItems.length);
@@ -40,7 +40,7 @@ const Slots = () => {
             handle.style.transform = "rotate(360deg)";
         }, 1000);
         
-        if(selectedItems[0] == selectedItems[1] && selectedItems[1] == selectedItems[2]){
+        if(randomItems[0] == randomItems[1] && randomItems[1] == randomItems[2] && randomItems[0] != null){
             // have multiplier change based on which symbol it is
             let multiplier = 1;
             switch (randomItems[0]) {
