@@ -13,17 +13,17 @@ const Casino = () => {
                 <div className="casino-buttons">
                     <Link to="/slots">
                         <button className='gameButton'>
-                            <img src="/src/assets/slots.jpg"/>
+                            <img src="/src/assets/slots.jpg" className="gameIcon"/>
                         </button>
                     </Link>
                     <Link to="/blackjack">
                         <button className='gameButton'>
-                            <img src="/src/assets/blackjack.jpg"/>
+                            <img src="/src/assets/blackjack.jpg" className="gameIcon"/>
                         </button>
                     </Link>
                     <Link to="/bomb">
                         <button className='gameButton'>
-                            <img src="/src/assets/mine.jpg"/>
+                            <img src="/src/assets/mine.jpg" className="gameIcon"/>
                         </button>
                     </Link>
                     <Link to="/pachinko">
