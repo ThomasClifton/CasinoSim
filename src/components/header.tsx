@@ -39,7 +39,7 @@ class Header extends React.Component<{ balance: any }> {
                 </div>
                 <div>
                     <Link to="/">
-                        <button className="header-button">Back to title</button>
+                        <button className="header-button">Reset</button>
                     </Link>
                 </div>
                 <div className="header-balance">
