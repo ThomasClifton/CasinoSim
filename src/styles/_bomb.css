@@ -1,12 +1,6 @@
-.bombContainer {
-    display: grid;
-    grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(5, 100px);
-    gap: 2px;
-}
 
-.row {
-    display: flex;
+.bombContainer {
+    width: 500px;
 }
 
 .cell {
