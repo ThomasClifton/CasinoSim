@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "../components/header.tsx";
 import { useBalanceStore } from '../store/store';
+import '../styles/_bomb.css';
 
 
 const Bomb = () => {
@@ -12,7 +13,6 @@ const Bomb = () => {
         console.log("Clicked on (${row}, ${column})");
     }
     
-
     return (
         <><Header balance={balance}/>
             <div>
