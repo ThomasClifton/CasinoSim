@@ -1,0 +1,16 @@
+
+.bombContainer {
+    width: 500px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: lightgray;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.cell.revealed {
+    background-color: red;
+}
