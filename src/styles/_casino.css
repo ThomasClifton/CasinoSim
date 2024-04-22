@@ -9,13 +9,13 @@
 .casino-buttons button {
     padding: 10px 20px;
     font-size: 32px;
-    background-color: #007bff;
+    background-color: #3c4c53;
     color: #fff;
     margin: 0 10px;
 }
 
 .casino-buttons button:hover {
-    background-color: #0056b3;
+    background-color: #334147;
 }
 
 .gameIcon {
