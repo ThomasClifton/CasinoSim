@@ -38,7 +38,6 @@
 	<SubTexture name="cardHeartsJ.png" x="140" y="1140" width="140" height="190"/>
 	<SubTexture name="cardHeartsK.png" x="140" y="950" width="140" height="190"/>
 	<SubTexture name="cardHeartsQ.png" x="140" y="760" width="140" height="190"/>
-	<SubTexture name="cardJoker.png" x="140" y="570" width="140" height="190"/>
 	<SubTexture name="cardSpades10.png" x="0" y="760" width="140" height="190"/>
 	<SubTexture name="cardSpades2.png" x="140" y="380" width="140" height="190"/>
 	<SubTexture name="cardSpades3.png" x="140" y="190" width="140" height="190"/>
