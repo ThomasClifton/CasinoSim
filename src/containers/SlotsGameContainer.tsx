@@ -98,7 +98,7 @@ const Slots = () => {
             }
             <div className="sliderContainer">
             <Slider min={10}
-                color="blue"
+                color="rgba(60, 76, 83, 1"
                 id="betSlider"
                 value={value}
                 onChange={setValue}
