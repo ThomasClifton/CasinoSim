@@ -3,6 +3,8 @@ import "/src/styles/_blackjack.css"
 import {useState} from 'react';
 import {useBalanceStore} from "../store/store.ts";
 import {Slider} from "@mantine/core";
+import deal from "../assets/Music/pounding-cards-on-table-99355.mp3";
+import flip from "../assets/Music/cardsound32562-37691.mp3";
 
 const Blackjack = () => {
     // Betting stuff
@@ -12,6 +14,10 @@ const Blackjack = () => {
 
     const addMoney = useBalanceStore((state) => state.addMoney);
     const loseMoney = useBalanceStore((state) => state.loseMoney);
+
+    // Sound Players
+    var dealSoundPlayer = new Audio(deal);
+    var flipSoundPlayer = new Audio(flip);
 
     // Card Types
     type Suit = 'Hearts' | 'Diamonds' | 'Clubs' | 'Spades';
@@ -130,6 +136,9 @@ const Blackjack = () => {
         const dealerCards = deck.slice(updatedIndex -3, updatedIndex -1);
         const playerCards = deck.slice(updatedIndex - 1, updatedIndex + 1);
 
+        dealSoundPlayer.play();
+        dealSoundPlayer.currentTime = 0;
+
         return { dealerCards, playerCards, updatedIndex };
     }
 
@@ -222,6 +231,10 @@ const Blackjack = () => {
             setPlayerHand(tempHand);
             renderDeck(tempHand, cardData, false, false);
 
+            // Sound for hit
+            flipSoundPlayer.play();
+            flipSoundPlayer.currentTime = 0;
+
             const playerTotal = calculateHandTotal(tempHand);
             if (playerTotal === 21) {
                 setIsHitButtonDisabled(true); // Disable hit button
@@ -249,6 +262,9 @@ const Blackjack = () => {
                 index++;
 
                 dealerTotal = calculateHandTotal(tempHand);
+
+                flipSoundPlayer.play();
+                flipSoundPlayer.currentTime = 0;
 
                 await new Promise((resolve) => setTimeout(resolve, 600));
 

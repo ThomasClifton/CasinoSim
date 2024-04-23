@@ -3,7 +3,8 @@ import "/src/styles/_slots.css";
 import Header from "../components/header.tsx";
 import { Slider } from '@mantine/core';
 import { useBalanceStore } from '../store/store';
-import winSound from '../assets/Music/playful-casino-slot-machine-bonus.mp3'
+import winSound from '../assets/Music/playful-casino-slot-machine-bonus.mp3';
+import coin from '../assets/Music/coin-donation-2-180438.mp3';
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -24,6 +25,7 @@ const Slots = () => {
     const [value, setValue] = useState(40);
 
     var winSoundPlayer = new Audio(winSound);
+    var coinSoundPlayer = new Audio(coin);
     
     const addMoney = useBalanceStore((state) => state.addMoney);
     const loseMoney = useBalanceStore((state) => state.loseMoney);
@@ -39,6 +41,9 @@ const Slots = () => {
         setTimeout(() => {
             handle.style.transform = "rotate(360deg)";
         }, 1000);
+
+        coinSoundPlayer.play();
+        coinSoundPlayer.currentTime = 0;
         
         if(randomItems[0] == randomItems[1] && randomItems[1] == randomItems[2] && randomItems[0] != null){
             // have multiplier change based on which symbol it is
