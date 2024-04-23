@@ -1,6 +1,8 @@
 .home-container {
     text-align: center;
     padding: 20px;
+    background-image: url('../assets/Casino Floor.jpg');
+    background-size: cover;
 }
 
 .home-container h2 {
