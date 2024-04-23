@@ -23,6 +23,10 @@ In Blackjack, the object of the game is to get closer to 21 than the dealer with
 ### Bomb Game
 In the bomb game, there is a 5x5 grid. At the beginning of the game, you choose how many mines you want in play. 1-24 mines can be selected across 25 times. The mines are gems are placed at random. You click on the tiles to reveal either a bomb or a gem. Every gem revealed increases your multiplier, but a bomb will end your game. 
 
+### Pachinko
+Press the button to drop a ball. Each ball costs $50. If the ball lands in a red space, you get nothing! If it lands in grey, you get you money back. Green means you receive double the 
+bet. Gold is the jackpot, where you can get $500!
+
 ## License
 This project is licensed under the MIT License. See LICENSE for details.
 

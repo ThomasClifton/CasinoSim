@@ -28,7 +28,7 @@ const Casino = () => {
                     </Link>
                     <Link to="/pachinko">
                         <button className='gameButton'>
-                            Pachinko
+                            <img src="/src/assets/pachinko.png" className="gameIcon"/>
                         </button>
                     </Link>
                 </div>

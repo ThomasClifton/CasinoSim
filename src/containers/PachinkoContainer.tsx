@@ -1,6 +1,6 @@
 import Header from "../components/header.tsx";
 import { useBalanceStore } from '../store/store.ts';
-import { Engine, Render, Bodies, World, Body, Runner  } from 'matter-js'
+import { Engine, Render, Bodies, World, Composite, Runner, Events } from 'matter-js'
 import { useEffect, useRef, useState } from 'react'
 import '../styles/_casino.css';
 
@@ -67,7 +67,6 @@ const Pachinko = () => {
       var step = 50;
       var count = 0;
 
-      console.log("Before pegs");
       while (y < 600) {
         console.log(count)
         if (count % 2 != 0) {
@@ -78,8 +77,7 @@ const Pachinko = () => {
         }
         x = xStart;
         while (x < 570) {
-          console.log("Adding circle at " + x + " and " + y);
-          World.add(
+          Composite.add(
             engine.world,
             Bodies.circle(x, y, 10, {
               isStatic: true,
@@ -102,15 +100,77 @@ const Pachinko = () => {
             }
           ));
       }
-      
 
-      World.add(engine.world, walls);
-      World.add(engine.world, barriers);
+      let lose_buckets = [
+        Bodies.rectangle(25, 670, 40, 40, {label:"lose", isStatic:true, render:{fillStyle:'#ff5c5c'}}),
+        Bodies.rectangle(237, 670, 60, 40, {label:"lose", isStatic:true, render:{fillStyle:'#ff5c5c'}}),
+        Bodies.rectangle(362, 670, 60, 40, {label:"lose", isStatic:true, render:{fillStyle:'#ff5c5c'}}),
+        Bodies.rectangle(575, 670, 40, 40, {label:"lose", isStatic:true, render:{fillStyle:'#ff5c5c'}})
+      ];
+
+      let x1_buckets = [
+        Bodies.rectangle(75, 670, 40, 40, {label:"x1", isStatic:true, render:{fillStyle:'#8f9695'}}),
+        Bodies.rectangle(175, 670, 40, 40, {label:"x1", isStatic:true, render:{fillStyle:'#8f9695'}}),
+        Bodies.rectangle(425, 670, 40, 40, {label:"x1", isStatic:true, render:{fillStyle:'#8f9695'}}),
+        Bodies.rectangle(525, 670, 40, 40, {label:"x1", isStatic:true, render:{fillStyle:'#8f9695'}})
+      ];
+
+      let x2_buckets = [
+        Bodies.rectangle(125, 670, 40, 40, {label:"x2", isStatic:true, render:{fillStyle:'#68e3ae'}}),
+        Bodies.rectangle(475, 670, 40, 40, {label:"x2", isStatic:true, render:{fillStyle:'#68e3ae'}})
+      ];
+
+      let jackpot_buckets = Bodies.rectangle(300, 670, 40, 40, {label:"jackpot", isStatic:true, render:{fillStyle:'#ffdb38'}});
+
+      Composite.add(engine.world, walls);
+      Composite.add(engine.world, barriers);
+      Composite.add(engine.world, lose_buckets);
+      Composite.add(engine.world, x1_buckets);
+      Composite.add(engine.world, x2_buckets);
+      Composite.add(engine.world, [jackpot_buckets]);
 
       Runner.run(engine);
       Render.run(render);
       
       setScene(render);
+
+      Events.on(engine, 'collisionStart', event => {
+        for (const {bodyA, bodyB} of event.pairs) {
+          if(bodyA.label == "ball"){
+            if(bodyB.label == "x1"){
+              addMoney(50);
+              Composite.remove(engine.world, bodyA);
+            }
+            else if(bodyB.label == "x2"){
+              addMoney(100);
+              Composite.remove(engine.world, bodyA);
+            }
+            else if(bodyB.label == "jackpot"){
+              addMoney(500);
+              Composite.remove(engine.world, bodyA);
+            }
+            else if(bodyB.label == "lose"){
+              Composite.remove(engine.world, bodyA);
+            }
+          }
+          else if(bodyB.label == "ball"){
+            if(bodyA.label == "x1"){
+              addMoney(50);
+              Composite.remove(engine.world, bodyB);
+            }
+            else if(bodyA.label == "x2"){
+              addMoney(100);
+              Composite.remove(engine.world, bodyB);
+            }
+            else if(bodyA.label == "jackpot"){
+              addMoney(500);
+              Composite.remove(engine.world, bodyB);
+            }else if(bodyA.label == "lose"){
+              Composite.remove(engine.world, bodyB);
+            }
+          }
+        }
+      })
     }, []);
 
     useEffect(() => {
@@ -118,10 +178,12 @@ const Pachinko = () => {
       if (scene) {
         let width = 600;
         let randomX = Math.floor(Math.random() * -width) + width;
-        World.add(
+        Composite.add(
           scene.engine.world,
           Bodies.circle(randomX, -PARTICLE_SIZE, PARTICLE_SIZE, {
-            restitution: PARTICLE_BOUNCYNESS, render: {fillStyle: 'red'}
+            density:.04,
+            friction: .01,
+            restitution: PARTICLE_BOUNCYNESS, render: {fillStyle: 'red'}, label: "ball"
           })
         );
       }
