@@ -10,8 +10,9 @@
     background-color: lightgray;
     border: 1px solid black;
     cursor: pointer;
+    font-size: 50px;
 }
 
-.cell.clicked.bomb {
+.cell.clicked {
     background-color: red;
 }

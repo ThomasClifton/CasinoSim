@@ -14,9 +14,11 @@ const Bomb = () => {
     // array of 25 bools set to false, represents the 25 tiles and if its a mine or not
     const [board, setBoard] = useState<boolean[]>(Array(25).fill(false));
 
-    
+    // array of 25 bools same as above but to see if they have been clicked or not
+    const [clicked, setClicked] = useState<boolean[]>(Array(25).fill(false));
+
     const generateBombs = (bombCount: number): boolean[] => {
-        const newBoard = [...board];
+        const newBoard: boolean[] = Array(25).fill(false);
         const bombIndexes: number[] = [];
         while (bombIndexes.length < bombCount) {
             const randomNum = Math.floor(Math.random() * 25);
@@ -32,10 +34,22 @@ const Bomb = () => {
     const handleStartGame = () => {
         const newBoard = generateBombs(bombCount);
         setBoard(newBoard);
+        setClicked(Array(25).fill(false));
     };
 
     const handleCellClick = (index: number) => {
+        if (clicked[index])
+            {
+                return;
+            }
+        setClicked(prevClicked => {
+            const newClickedCells = [...prevClicked];
+            newClickedCells[index] = true; // Mark cell as clicked
+            return newClickedCells;
+        })
+
         if (board[index]) {
+            setClicked(Array(25).fill(true));
             console.log("You clicked on a bomb!");
         } else {
             console.log("You clicked on a gem!");
@@ -80,8 +94,8 @@ const Bomb = () => {
                 <h2>Bomb Game Page</h2>
                 <SimpleGrid cols={5} spacing={0} verticalSpacing={0}>
                     {board.map((cell, index) => (
-                        <div key={index} className="cell" onClick={() => handleCellClick(index)}>
-                            {cell ? "💣" : "💎"}
+                        <div key={index} className="cell" onClick={() => handleCellClick(index)} style={{ pointerEvents: clicked[index] ? 'none' : 'auto' }}>
+                            {clicked[index] && (cell ? "💣" : "💎")}
                         </div>
                     ))}
                 </SimpleGrid>
