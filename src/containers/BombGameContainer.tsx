@@ -4,6 +4,8 @@ import { useBalanceStore } from '../store/store';
 import { SimpleGrid } from "@mantine/core";
 import { Slider } from '@mantine/core';
 import '../styles/_bomb.css';
+import bombSound from '../assets/Music/explosion-42132.mp3';
+import gemSound from '../assets/Music/sound-effect-twinklesparkle-115095.mp3';
 
 
 const Bomb = () => {
@@ -17,7 +19,8 @@ const Bomb = () => {
     const [multiplier, setMultiplier] = useState(0);
     const [gameOver, setGameOver] = useState(false);
 
-
+    var bombSoundPlayer = new Audio(bombSound);
+    var gemSoundPlayer = new Audio(gemSound);
 
     // array of 25 bools set to false, represents the 25 tiles and if its a mine or not
     const [board, setBoard] = useState<boolean[]>(Array(25).fill(false));
@@ -63,8 +66,12 @@ const Bomb = () => {
             setClicked(Array(25).fill(true));
             console.log("You clicked on a bomb!");
             setGameOver(true);
+            bombSoundPlayer.play();
+            bombSoundPlayer.currentTime = 0;
         } else {
             console.log("You clicked on a gem!");
+            gemSoundPlayer.play();
+            gemSoundPlayer.currentTime = 0;
             setMultiplier(prevMultiplier => prevMultiplier + (bombCount/25))
             
         }
