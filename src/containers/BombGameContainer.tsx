@@ -7,9 +7,17 @@ import '../styles/_bomb.css';
 
 
 const Bomb = () => {
+    // zustand stuff
     const balance = useBalanceStore((state) => state.balance);
+    const addMoney = useBalanceStore((state) => state.addMoney);
+    const loseMoney = useBalanceStore((state) => state.loseMoney);
     const [value, setValue] = useState(40);
-    const [bombCount, setBombCount] = useState(1)
+
+    const [bombCount, setBombCount] = useState(1);
+    const [multiplier, setMultiplier] = useState(1);
+    const [gameOver, setGameOver] = useState(false);
+
+
 
     // array of 25 bools set to false, represents the 25 tiles and if its a mine or not
     const [board, setBoard] = useState<boolean[]>(Array(25).fill(false));
@@ -35,10 +43,12 @@ const Bomb = () => {
         const newBoard = generateBombs(bombCount);
         setBoard(newBoard);
         setClicked(Array(25).fill(false));
+        setMultiplier(1);
+        setGameOver(false);
     };
 
     const handleCellClick = (index: number) => {
-        if (clicked[index])
+        if (clicked[index] || gameOver)
             {
                 return;
             }
@@ -47,19 +57,29 @@ const Bomb = () => {
             newClickedCells[index] = true; // Mark cell as clicked
             return newClickedCells;
         })
-
+        
         if (board[index]) {
             setClicked(Array(25).fill(true));
             console.log("You clicked on a bomb!");
+            loseMoney(value);
+            setGameOver(true);
         } else {
             console.log("You clicked on a gem!");
+            setMultiplier(prevMultiplier => prevMultiplier + (bombCount/20))
+            
         }
     };
+
+    const cashOut = () => {
+        addMoney (value * multiplier);
+        handleStartGame();
+    }
     
     
 
     return (
-        <><Header balance={balance}/>
+        <>
+        <Header balance={balance}/>
 
             
             <div>Bet Amount</div>
@@ -99,6 +119,10 @@ const Bomb = () => {
                         </div>
                     ))}
                 </SimpleGrid>
+            </div>
+            <div>
+                Multiplier: {multiplier}
+                <button onClick={cashOut}>Cash Out</button>
             </div>
         </>
     );
