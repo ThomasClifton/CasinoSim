@@ -11,7 +11,6 @@ export const useBalanceStore = create<BalanceStore>((set) => ({
     balance: 1000,
     addMoney: (bet) => {
         set((state) => ({balance: state.balance + bet}));
-        console.log(bet);
     },
     loseMoney: (bet) => {
         set((state) => ({balance: state.balance - bet}))

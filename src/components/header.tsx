@@ -12,8 +12,8 @@ const walletStates: {[key:string]: string} = {
 class Header extends React.Component<{ balance: any }> {
 
     getImgFromWalletState = () => {
-        let {balance} = this.props;
-        if(balance <= 100){
+
+        let {balance} = this.props;if(balance <= 100){
             return walletStates['empty'];
         }
         else if(balance <= 3000){
@@ -30,6 +30,7 @@ class Header extends React.Component<{ balance: any }> {
     render() {
         let {balance} = this.props;
         let stateUrl = this.getImgFromWalletState();
+        
         return (
             <div className="app-header">
                 <div>
