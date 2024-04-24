@@ -1,6 +1,7 @@
 
 .bombContainer {
     width: 500px;
+    margin:auto;
 }
 
 .cell {
@@ -11,6 +12,6 @@
     cursor: pointer;
 }
 
-.cell.revealed {
+.cell.clicked.bomb {
     background-color: red;
 }
