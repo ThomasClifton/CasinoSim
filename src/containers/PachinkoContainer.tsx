@@ -1,10 +1,13 @@
 import Header from "../components/header.tsx";
 import { useBalanceStore } from '../store/store.ts';
-import { Engine, Render, Bodies, World, Composite, Runner, Events } from 'matter-js'
+import { Engine, Render, Bodies, Composite, Runner, Events } from 'matter-js'
 import { useEffect, useRef, useState } from 'react'
 import '../styles/_casino.css';
+import ping from '../assets/Music/button-124476.mp3';
+import winSound from '../assets/Music/power-up-sparkle-1-177983.mp3';
+import loseSound from '../assets/Music/tennis-smash-100733.mp3';
+import neutralSound from '../assets/Music/90s-game-ui-6-185099.mp3';
 
-const STATIC_DENSITY = 15;
 const PARTICLE_SIZE = 6;
 const PARTICLE_BOUNCYNESS = 0.9;
 
@@ -20,6 +23,11 @@ const Pachinko = () => {
     
     const boxRef = useRef<HTMLInputElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
+
+    var pingSoundPlayer = new Audio(ping);
+    var loseSoundPlayer = new Audio(loseSound);
+    var winSoundPlayer = new Audio(winSound);
+    var neutralSoundPlayer = new Audio(neutralSound);
 
     const handleClick = () => {
       setSomeStateValue(!someStateValue);
@@ -140,33 +148,57 @@ const Pachinko = () => {
             if(bodyB.label == "x1"){
               addMoney(50);
               Composite.remove(engine.world, bodyA);
+              neutralSoundPlayer.play();
+              neutralSoundPlayer.currentTime = 0;
             }
             else if(bodyB.label == "x2"){
               addMoney(100);
               Composite.remove(engine.world, bodyA);
+              neutralSoundPlayer.play();
+              neutralSoundPlayer.currentTime = 0;
             }
             else if(bodyB.label == "jackpot"){
               addMoney(500);
               Composite.remove(engine.world, bodyA);
+              winSoundPlayer.play();
+              winSoundPlayer.currentTime = 0;
             }
             else if(bodyB.label == "lose"){
               Composite.remove(engine.world, bodyA);
+              loseSoundPlayer.play();
+              loseSoundPlayer.currentTime = 0;
+            }
+            else{
+              pingSoundPlayer.play();
+              pingSoundPlayer.currentTime = 0;
             }
           }
           else if(bodyB.label == "ball"){
             if(bodyA.label == "x1"){
               addMoney(50);
               Composite.remove(engine.world, bodyB);
+              neutralSoundPlayer.play();
+              neutralSoundPlayer.currentTime = 0;
             }
             else if(bodyA.label == "x2"){
               addMoney(100);
               Composite.remove(engine.world, bodyB);
+              neutralSoundPlayer.play();
+              neutralSoundPlayer.currentTime = 0;
             }
             else if(bodyA.label == "jackpot"){
               addMoney(500);
               Composite.remove(engine.world, bodyB);
+              winSoundPlayer.play();
+              winSoundPlayer.currentTime = 0;
             }else if(bodyA.label == "lose"){
               Composite.remove(engine.world, bodyB);
+              loseSoundPlayer.play();
+              loseSoundPlayer.currentTime = 0;
+            }
+            else{
+              pingSoundPlayer.play();
+              pingSoundPlayer.currentTime = 0;
             }
           }
         }

@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "/src/styles/_slots.css";
 import Header from "../components/header.tsx";
-import { Slider } from '@mantine/core';
+import { Slider, Space } from '@mantine/core';
 import { useBalanceStore } from '../store/store';
-import winSound from '../assets/Music/playful-casino-slot-machine-bonus.mp3'
+import winSound from '../assets/Music/playful-casino-slot-machine-bonus.mp3';
+import coin from '../assets/Music/coin-donation-2-180438.mp3';
+import { useModalStore } from '../store/modalStore.ts';
+import ModalComponent from '../components/ModalComponent.tsx';
 
 const slotsItems = ['melon', 'heart', 'cherry', 'clover', 'bell', 'bar', 'seven'];
 const slotsImages: {[key:string]: string} = {
@@ -20,10 +23,18 @@ const Slots = () => {
 
     const [selectedItems, setSelectedItems] = useState<Array<string | null>>([null, null, null]);
     const balance = useBalanceStore((state) => state.balance);
+    const { toggleModal } = useModalStore();
+    
+    const checkWallet = () => {
+        if(balance < 0){
+            toggleModal();
+        }
+    }
 
     const [value, setValue] = useState(40);
 
     var winSoundPlayer = new Audio(winSound);
+    var coinSoundPlayer = new Audio(coin);
     
     const addMoney = useBalanceStore((state) => state.addMoney);
     const loseMoney = useBalanceStore((state) => state.loseMoney);
@@ -34,11 +45,17 @@ const Slots = () => {
             return slotsItems[randomIndex];
         }).slice(0, 3);
         setSelectedItems(randomItems);
+
+        checkWallet();
+
         const handle = document.getElementById("slots-handle");
         handle.style.transform = "rotate(180deg)";
         setTimeout(() => {
             handle.style.transform = "rotate(360deg)";
         }, 1000);
+
+        coinSoundPlayer.play();
+        coinSoundPlayer.currentTime = 0;
         
         if(randomItems[0] == randomItems[1] && randomItems[1] == randomItems[2] && randomItems[0] != null){
             // have multiplier change based on which symbol it is
@@ -79,34 +96,34 @@ const Slots = () => {
     
     return (
         <div>
-        <Header balance={balance}/>
-        <div className="slotsPage">
-            <div className="slots-container">
-                {selectedItems.map((selectedItem, index) => (
-                    <div className="column" key={index}>
-                        {selectedItem && <img src={slotsImages[selectedItem]} alt={selectedItem} />}
+            <Header balance={balance}/>
+            <ModalComponent />
+            <div>
+                <div className="slotsPage">
+                    <div className="slots-container">
+                        {selectedItems.map((selectedItem, index) => (
+                            <div className="column" key={index}>
+                                {selectedItem && <img src={slotsImages[selectedItem]} alt={selectedItem} />}
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
-            <button id="slots-handle" onClick={handleSpinClick}>
-                <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
-            </button>
-        </div>
-                        
-            {
-            // https://mantine.dev/core/slider/
-            }
-            <div className="sliderContainer">
-            <Slider min={10}
-                color="rgba(60, 76, 83, 1"
-                id="betSlider"
-                value={value}
-                onChange={setValue}
-                marks={[
-                    { value: 10, label: '10' },
-                    { value: 100, label: '100' },
-                ]}
-            />
+                    <button id="slots-handle" onClick={handleSpinClick}>
+                        <img src="./src/assets/Slots/slotshandle.png" height="150px"/>
+                    </button>
+                </div>
+                <Space h="150"/>
+                <div className="sliderContainer">
+                    <Slider min={10}
+                        color="blue"
+                        id="betSlider"
+                        value={value}
+                        onChange={setValue}
+                        marks={[
+                            { value: 10, label: '10' },
+                            { value: 100, label: '100' },
+                        ]}
+                    />
+                </div>
             </div>
         </div>
         
